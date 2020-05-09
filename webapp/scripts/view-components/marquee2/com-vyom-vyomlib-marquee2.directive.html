@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <style>
+			.simple-marquee-container-color{
+				background: {{ColourText}}  !important;
+			}
+			.contentwidth{
+				width:{{divWidth}};
+			}
+		</style>
+        
+	</head>
+	<body>
+
+		 <div class="content contentwidth">
+			<div class="simple-marquee-container simple-marquee-container-color">
+				<div class="marquee">
+					<ul class="marquee-content-items" ng-repeat='x in mydata' com-vyom-vyomlib-my-repeat-directive>
+					<li>
+						<span  ng-if="FieldID1Title||x[FieldID1]"> {{FieldID1Title}} : {{fromhtml(FieldID1,x[FieldID1])}}   </span>
+								  <span ng-if="(FieldID1Title||x[FieldID1])&&(FieldID2Title||x[FieldID2])">,</span><!-- {{fromhtml(FieldID2,x[FieldID2])}} -->
+								  <span  ng-if="FieldID2Title||x[FieldID2]"> {{FieldID2Title}}: {{fromhtml(FieldID2,x[FieldID2])}}  </span>
+								  <span ng-if="((FieldID1Title||x[FieldID1])||(FieldID2Title||x[FieldID2]))&&(FieldID3Title||x[FieldID3])">,</span>
+								  <span  ng-if="FieldID3Title||x[FieldID3]"> {{FieldID3Title}} : {{fromhtml(FieldID3,x[FieldID3])}}</span>
+								  <span ng-if="((FieldID1Title||x[FieldID1])||(FieldID2Title||x[FieldID2])||(FieldID3Title||x[FieldID3]))&&(FieldID4Title||x[FieldID4])">,</span>
+								  <span  ng-if="FieldID4Title||x[FieldID4]"> {{FieldID4Title}} : {{fromhtml(FieldID4,x[FieldID4])}}   </span>  
+                        </li>
+				
+                        <li>{{Separator}}</li>
+					</ul>
+				</div>
+			</div>
+		</div> 
+    
+	</body>
+</html>

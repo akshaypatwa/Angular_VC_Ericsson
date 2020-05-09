@@ -1,0 +1,131 @@
+<html>
+
+
+<body>
+<div class="app-main__inner">
+<div class="main-card mb-3 card">
+   <div class="card-header">
+    
+       <button class="btn-pill btn-shadow btn-wide fsize-2 btn btn-success btn-lg" ng-click="bulkedit('Approved')">
+           <span class="mr-2 opacity-7"></span>
+           <span class="mr-1">Approve Selected</span>
+       </button>
+	  <button class="btn-pill btn-shadow btn-wide fsize-2 btn btn-danger btn-lg" ng-click="bulkedit('Rejected')">
+          <span class="mr-2 opacity-7"></span>
+          <span class="mr-1">Reject Selected</span>
+       </button>
+      
+       <div class="dropdown">
+           
+           <button class="d-icon-ellipsis d-button d-button_action-clear d-button_large"></button>
+           <div class="dropdown-content" >
+           <!-- ----->
+                <div class="custom-checkbox custom-control " >
+                        <input class="custom-control-input" ng-model="displayid"  id="displayid" type="checkbox" >
+                        <label class="custom-control-label" for="displayid">ID</label>
+                    </div>
+            
+               <div class="custom-checkbox custom-control ">
+                        <input class="custom-control-input" ng-model="status"  id="status" type="checkbox" >
+                        <label class="custom-control-label" for="status">Status</label>
+                    </div>
+               <div class="custom-checkbox custom-control ">
+                        <input class="custom-control-input" ng-model="duedate"  id="duedate" type="checkbox" >
+                        <label class="custom-control-label" for="duedate">Due Date</label>
+                    </div>
+               <div class="custom-checkbox custom-control " ng-hide="HiddenTargetAchievment">
+                        <input class="custom-control-input" ng-model="target"  id="target" type="checkbox" >
+                        <label class="custom-control-label" for="target">Target Achivement</label>
+                    </div>
+                <div class="custom-checkbox custom-control " ng-repeat="c in list">
+                        <input class="custom-control-input" ng-model="c.check"  id="col{{$index}}" type="checkbox" >
+                        <label class="custom-control-label" for="col{{$index}}">{{c.name}}</label>
+                    </div>
+               
+            <!--- ---->
+           </div>
+       </div>
+       
+       
+       
+   </div>
+   <div class="table-responsive ">
+      <table class="align-middle text-truncate mb-0 table table-borderless table-hover table-resizable" >
+         <thead>
+            <tr>
+                <th class="text-center">
+                  
+                </th>
+               <th class="text-center" ng-hide="displayid">ID</th>
+               <th class="text-center" ng-hide="status">Status</th>
+                <th class="text-center" ng-repeat="h in list| filter:hideColumn" >{{h.name}}</th>
+               <th class="text-center" ng-hide="duedate">Due Date</th>
+               <th class="text-center"  ng-hide="target">Target Achievement</th>
+               <th class="text-center">Actions</th>
+                
+            </tr>
+         </thead>
+         <tbody>
+             
+            
+             
+            <tr ng-repeat="x in mydata  ">
+                <td class="text-center" >
+                    <div class="custom-checkbox custom-control">
+                        <input class="custom-control-input" ng-model="selectedcheckbox[x[179]]"   id="checkbox{{$index}}" type="checkbox" ng-change="getSelectedCheckbox()">
+                        <label class="custom-control-label" for="checkbox{{$index}}">&nbsp;</label>
+                    </div>
+                </td>
+               <td class="text-center text-muted" style="width: 80px;" ng-hide="displayid" >#{{getValues(displayIdFieldID,x[displayIdFieldID])}}</td>
+      
+               <td class="text-center" ng-hide="status">
+                  <div class="badge badge-pill badge-{{getValues(ApprovalFieldID,x[ApprovalFieldID]) |lowercase |comVyomVyomlibRemoveSpace}}">{{getValues(ApprovalFieldID,x[ApprovalFieldID])}}</div>
+               </td>
+                <!-- -->
+                <td class="text-center" ng-repeat="y in list |filter: hideColumn" >{{getValues(y.id,x[y.id])}}</td>
+                <!--- -->
+               <td class="text-center" ng-hide="duedate"><span class="pr-2 opacity-6"><me class="fa fa-business-time"></i></span> {{getValues(DueDateFieldID,x[DueDateFieldID])}} </td>
+               <td class="text-center" style="width: 200px;"   ng-hide="target">
+                  <div class="widget-content p-0">
+                     <div class="widget-content-outer">
+                        <div class="widget-content-wrapper">
+                           <div class="widget-content-left pr-2">
+                              <div class="widget-numbers fsize-1 text-danger ">{{getTargetAchievment(x[CreatedDateFieldID],x[DueDateFieldID])}}%</div>
+                           </div>
+                           <div class="widget-content-right w-100">
+                              <div class="progress-bar-xs progress">
+                                 <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="71" class="progress-bar bg-danger" role="progressbar" style="width: {{getTargetAchievment(x[CreatedDateFieldID],x[DueDateFieldID])}}%;">
+                                  
+                                  </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </td>
+               <td class="text-center">
+                  <div class="btn-group-lg btn-group" role="group"  ><button class="btn-shadow btn btn-success" ng-disabled="selectedcheckbox[x[179]] !=true" ng-click="getApproval(x[179],'Approved')">Approve</button><button class="btn-shadow btn btn-danger" ng-disabled="selectedcheckbox[x[179]] !=true  " ng-click="getApproval(x[179],'Rejected')">Reject</button></div>
+                   
+                   
+               </td>
+            </tr>
+        
+       
+         </tbody>
+      </table>
+   </div>
+    
+    <div class="d-block p-4 text-center card-footer">
+        <button class="btn-pill btn-shadow btn-wide fsize-3 btn w3-{{ViewReqColor}} btn-lg" style="width: 300px" ng-click="executeAction()">
+        <span class="mr-2 opacity-7"></span>
+        <span class="mr-1">View All Requests</span>
+        </button>
+    </div>
+   
+   
+</div>
+</div>
+  
+    
+</body>
+</html>

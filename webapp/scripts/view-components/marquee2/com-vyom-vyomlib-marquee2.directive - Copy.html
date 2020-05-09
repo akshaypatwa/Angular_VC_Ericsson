@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Simple Marquee Example</title>
+<!--		<link rel="stylesheet" href="css/marquee.css" />-->
+<!--        <link rel="stylesheet" href="css/example.css" />-->
+        <link rel="stylesheet" href="/com.vyom.vyomlib/resources/marquee/css/marquee.css" />
+        <link rel="stylesheet" href="/com.vyom.vyomlib/resources/marquee/css/example.css" />
+        
+        <link href="/com.vyom.vyomlib/resources/homepage/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+        
+	</head>
+	<body>
+		<!-- <div class="content">
+			<div class="simple-marquee-container">
+				<div class="marquee-sibling">
+					Incidents
+				</div>
+				<div class="marquee">
+					<ul class="marquee-content-items" ng-repeat="x in mydata">
+						<li>Incident 1 {{$index+1}}</li>
+						<li>Incident 2 {{x['1']}} </li>
+						<li>Incidendt 3</li>
+						<li>Incident 4</li>
+						<li>Incident 5</li>
+                        <li>||||||||||</li>
+					</ul>
+				</div>
+			</div>
+		</div> -->
+		
+		<div class="content">
+			<div class="simple-marquee-container">
+				<div class="marquee-sibling">
+					Incidents
+				</div>
+				<div class="marquee">
+					<ul class="marquee-content-items" ng-repeat="x in mydata">
+						<li>Incident 1 {{$index+1}}</li>
+						<li>Incident 2 {{x['1']}} </li>
+						<li>Incidendt 3</li>
+						<li>Incident 4</li>
+						<li>Incident 5</li>
+                        <li>||||||||||</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+        
+        
+        
+                <div>
+                                <table>
+                                  <thead>
+                                    <tr>
+                                      <th>#</th>
+                                      <th>IncidentID</th>
+                                      <th>Summary</th>                                   
+                                                                        
+                                      <th>Status</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+
+                                <tr ng-repeat="x in mydata">
+                                  <td>Number : {{$index+1}}</td>
+                                  <td>ID : {{x['1']}}</td>
+                                  <td>Summary : {{x['8']}}</td>                               
+                                  <td>{{x['7']}}</td>
+                                 
+                              </tr>
+
+
+                                  
+
+                          </tbody>
+                      </table>
+                  </div>
+		
+		
+<!--		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>-->
+        
+        <script src="/com.vyom.vyomlib/resources/marquee/js/jquery.min.js"></script>
+		<script type="text/javascript" src="/com.vyom.vyomlib/resources/marquee/js/marquee.js"></script>
+
+
+		<script>
+			$(function (){
+
+				$('.simple-marquee-container').SimpleMarquee();
+				
+			});
+
+		</script>
+	</body>
+</html>
