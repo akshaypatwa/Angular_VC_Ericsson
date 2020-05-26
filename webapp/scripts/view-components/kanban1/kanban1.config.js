@@ -27,6 +27,22 @@
                     isProperty: false,  // Not an output parameter
                     isRequired: true,  // Not required
                     enableExpressionEvaluation: true    // The expression will be evaluated.
+                  },
+                  {  
+                    name: 'ViewGuid',
+                    type: 'string',
+                    isConfig: true,     // Input parameter
+                    isProperty: false,  // Not an output parameter
+                    isRequired: true,  // Not required
+                    enableExpressionEvaluation: true    // The expression will be evaluated.
+                  },
+                  {  
+                    name: 'CreateTicket',
+                    type: 'string',
+                    isConfig: true,     // Input parameter
+                    isProperty: false,  // Not an output parameter
+                    isRequired: true,  // Not required
+                    enableExpressionEvaluation: true    // The expression will be evaluated.
                   }
                     
                 ]
