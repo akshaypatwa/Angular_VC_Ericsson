@@ -1,31 +1,16 @@
-/* 
-body {
-  font-family: "Lato";
-  margin: 0;
-  padding: 0;
-  background-color: #6d6d6d;
-} */
+/* .custombutton {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  } */
 
-#myKanban {
-  overflow-x: auto;
-  padding: 20px 0;
-}
-
-.success {
-  background: #00b961;
-}
-
-.info {
-  background: #2a92bf;
-}
-
-.warning {
-  background: #f4ce46;
-}
-
-.error {
-  background: #fb7d44;
-}
 
   body {font-family: Arial, Helvetica, sans-serif;}
   * {box-sizing: border-box;}
@@ -98,3 +83,33 @@ body {
     opacity: 1;
   }
 
+
+
+  body {
+    font-family: "Lato";
+    margin: 0;
+    padding: 0;
+    background-color: #6d6d6d;
+  }
+
+  #myKanban {
+    overflow-x: auto;
+    padding: 20px 0;
+    background-color: #6d6d6d;
+  }
+
+  .success {
+    background: #00b961;
+  }
+
+  .info {
+    background: #2a92bf;
+  }
+
+  .warning {
+    background: #f4ce46;
+  }
+
+  .error {
+    background: #fb7d44;
+  }
